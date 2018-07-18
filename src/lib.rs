@@ -3,13 +3,18 @@
 // bindgen ./Include/NiteCAPI.h -o ~/code/rust/nite2-sys.rs --whitelist-function nite.* --rustified-enum Nite.* --opaque-type Oni.* -- -x c++ -I../OpenNI-MacOSX-x64-2.2/Include
 
 extern crate openni2_sys;
-use openni2_sys::OniFrame;
+use openni2_sys::{OniFrame, OniGeneralCallback};
 
 use std::os::raw::{c_short, c_int, c_ulonglong, c_void};
 #[cfg(test)] use std::mem::{size_of, align_of};
 #[cfg(test)] use std::ptr;
 
-pub type OniGeneralCallback = u64;
+#[test]
+fn test_oni_general_callback_size() {
+    // Without having onicapi.h for reference, bindgen thought
+    // OniGeneralCallback (a function pointer) should be a u64
+    assert_eq!(size_of::<u64>(), size_of::<OniGeneralCallback>());
+}
 
 /// Available joints in skeleton
 pub type NiteJointType = c_int;

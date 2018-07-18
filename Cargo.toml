@@ -11,7 +11,6 @@ readme = "README.md"
 keywords = ["openni2", "nite2", "c-api", "c-bindings", "natural-interaction"]
 categories = ["api-bindings", "multimedia::video"]
 license = "MIT"
-publish = false
 
 [dependencies]
 openni2-sys = "1.0"
