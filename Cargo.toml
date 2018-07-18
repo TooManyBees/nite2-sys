@@ -1,0 +1,17 @@
+[package]
+name = "nite2-sys"
+version = "0.0.1"
+authors = ["Jesse Bees <jesse@toomanybees.com>"]
+build = "build.rs"
+links = "nite2"
+description = "Rust bindings for NiTE2"
+repository = "https://github.com/TooManyBees/nite2-sys"
+documentation = "https://docs.rs/nite2-sys"
+readme = "README.md"
+keywords = ["openni2", "nite2", "c-api", "c-bindings", "natural-interaction"]
+categories = ["api-bindings", "multimedia::video"]
+license = "MIT"
+publish = false
+
+[dependencies]
+openni2-sys = "1.0"
