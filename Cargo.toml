@@ -1,6 +1,6 @@
 [package]
 name = "nite2-sys"
-version = "0.0.1"
+version = "0.1.0"
 authors = ["Jesse Bees <jesse@toomanybees.com>"]
 build = "build.rs"
 links = "nite2"
