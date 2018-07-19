@@ -3,7 +3,11 @@
 // bindgen ./Include/NiteCAPI.h -o ~/code/rust/nite2-sys.rs --whitelist-function nite.* --rustified-enum Nite.* --opaque-type Oni.* -- -x c++ -I../OpenNI-MacOSX-x64-2.2/Include
 
 extern crate openni2_sys;
-use openni2_sys::{OniDeviceHandle, OniFrame, OniGeneralCallback};
+pub use openni2_sys::{
+  OniDeviceHandle,
+  OniFrame,
+  OniGeneralCallback,
+};
 
 use std::os::raw::{c_short, c_int, c_ulonglong, c_void};
 #[cfg(test)] use std::mem::{size_of, align_of};
