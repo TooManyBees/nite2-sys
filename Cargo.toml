@@ -4,6 +4,7 @@ version = "0.0.1"
 authors = ["Jesse Bees <jesse@toomanybees.com>"]
 build = "build.rs"
 links = "nite2"
+exclude = ["vendor/**/*"]
 description = "Rust bindings for NiTE2"
 repository = "https://github.com/TooManyBees/nite2-sys"
 documentation = "https://docs.rs/nite2-sys"
