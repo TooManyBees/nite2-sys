@@ -786,135 +786,134 @@ extern "C" {
     pub fn niteGetVersion() -> NiteVersion;
 }
 extern "C" {
-    pub fn niteInitializeUserTracker(arg1: *mut NiteUserTrackerHandle) -> NiteStatus;
+    pub fn niteInitializeUserTracker(pUserTrackerHandle: *mut NiteUserTrackerHandle) -> NiteStatus;
 }
 extern "C" {
-    // FIXME: arg1 = deviceHandle?
-    pub fn niteInitializeUserTrackerByDevice(arg1: OniDeviceHandle,
-                                             arg2: *mut NiteUserTrackerHandle)
+    pub fn niteInitializeUserTrackerByDevice(deviceHandle: OniDeviceHandle,
+                                             pUserTrackerHandle: *mut NiteUserTrackerHandle)
                                              -> NiteStatus;
 }
 extern "C" {
-    pub fn niteShutdownUserTracker(arg1: NiteUserTrackerHandle) -> NiteStatus;
+    pub fn niteShutdownUserTracker(userTrackerHandle: NiteUserTrackerHandle) -> NiteStatus;
 }
 extern "C" {
-    pub fn niteStartSkeletonTracking(arg1: NiteUserTrackerHandle, arg2: NiteUserId) -> NiteStatus;
+    pub fn niteStartSkeletonTracking(userTrackerHandle: NiteUserTrackerHandle, userId: NiteUserId) -> NiteStatus;
 }
 extern "C" {
-    pub fn niteStopSkeletonTracking(arg1: NiteUserTrackerHandle, arg2: NiteUserId);
+    pub fn niteStopSkeletonTracking(userTrackerHandle: NiteUserTrackerHandle, userId: NiteUserId);
 }
 extern "C" {
-    pub fn niteIsSkeletonTracking(arg1: NiteUserTrackerHandle, arg2: NiteUserId) -> bool;
+    pub fn niteIsSkeletonTracking(userTrackerHandle: NiteUserTrackerHandle, userId: NiteUserId) -> bool;
 }
 extern "C" {
-    pub fn niteSetSkeletonSmoothing(arg1: NiteUserTrackerHandle, arg2: f32) -> NiteStatus;
+    pub fn niteSetSkeletonSmoothing(userTrackerHandle: NiteUserTrackerHandle, smoothing: f32) -> NiteStatus;
 }
 extern "C" {
-    pub fn niteGetSkeletonSmoothing(arg1: NiteUserTrackerHandle, arg2: *mut f32) -> NiteStatus;
+    pub fn niteGetSkeletonSmoothing(userTrackerHandle: NiteUserTrackerHandle, pSmoothing: *mut f32) -> NiteStatus;
 }
 extern "C" {
-    pub fn niteStartPoseDetection(arg1: NiteUserTrackerHandle,
-                                  arg2: NiteUserId,
-                                  arg3: NitePoseType)
+    pub fn niteStartPoseDetection(userTrackerHandle: NiteUserTrackerHandle,
+                                  userId: NiteUserId,
+                                  poseType: NitePoseType)
                                   -> NiteStatus;
 }
 extern "C" {
-    pub fn niteStopPoseDetection(arg1: NiteUserTrackerHandle,
-                                 arg2: NiteUserId,
-                                 arg3: NitePoseType);
+    pub fn niteStopPoseDetection(userTrackerHandle: NiteUserTrackerHandle,
+                                 userId: NiteUserId,
+                                 poseType: NitePoseType);
 }
 extern "C" {
-    pub fn niteStopAllPoseDetection(arg1: NiteUserTrackerHandle, arg2: NiteUserId);
+    pub fn niteStopAllPoseDetection(userTrackerHandle: NiteUserTrackerHandle, userId: NiteUserId);
 }
 extern "C" {
-    pub fn niteRegisterUserTrackerCallbacks(arg1: NiteUserTrackerHandle,
-                                            arg2: *mut NiteUserTrackerCallbacks,
-                                            arg3: *mut c_void)
+    pub fn niteRegisterUserTrackerCallbacks(userTrackerHandle: NiteUserTrackerHandle,
+                                            pUserTrackerCallbacks: *mut NiteUserTrackerCallbacks,
+                                            pCookie: *mut c_void)
                                             -> NiteStatus;
 }
 extern "C" {
-    pub fn niteUnregisterUserTrackerCallbacks(arg1: NiteUserTrackerHandle,
-                                              arg2: *mut NiteUserTrackerCallbacks);
+    pub fn niteUnregisterUserTrackerCallbacks(userTrackerHandle: NiteUserTrackerHandle,
+                                              pUserTrackerCallbacks: *mut NiteUserTrackerCallbacks);
 }
 extern "C" {
-    pub fn niteReadUserTrackerFrame(arg1: NiteUserTrackerHandle,
-                                    arg2: *mut *mut NiteUserTrackerFrame)
+    pub fn niteReadUserTrackerFrame(userTrackerHandle: NiteUserTrackerHandle,
+                                    frame: *mut *mut NiteUserTrackerFrame)
                                     -> NiteStatus;
 }
 extern "C" {
-    pub fn niteUserTrackerFrameAddRef(arg1: NiteUserTrackerHandle,
-                                      arg2: *mut NiteUserTrackerFrame)
+    pub fn niteUserTrackerFrameAddRef(userTrackerHandle: NiteUserTrackerHandle,
+                                      frame: *mut NiteUserTrackerFrame)
                                       -> NiteStatus;
 }
 extern "C" {
-    pub fn niteUserTrackerFrameRelease(arg1: NiteUserTrackerHandle,
-                                       arg2: *mut NiteUserTrackerFrame)
+    pub fn niteUserTrackerFrameRelease(userTrackerHandle: NiteUserTrackerHandle,
+                                       frame: *mut NiteUserTrackerFrame)
                                        -> NiteStatus;
 }
 extern "C" {
-    pub fn niteInitializeHandTracker(arg1: *mut NiteHandTrackerHandle) -> NiteStatus;
+    pub fn niteInitializeHandTracker(pHandTrackerHandle: *mut NiteHandTrackerHandle) -> NiteStatus;
 }
 extern "C" {
-    pub fn niteInitializeHandTrackerByDevice(arg1: OniDeviceHandle,
-                                             arg2: *mut NiteHandTrackerHandle)
+    pub fn niteInitializeHandTrackerByDevice(deviceHandle: OniDeviceHandle,
+                                             pHandTrackerHandle: *mut NiteHandTrackerHandle)
                                              -> NiteStatus;
 }
 extern "C" {
-    pub fn niteShutdownHandTracker(arg1: NiteHandTrackerHandle) -> NiteStatus;
+    pub fn niteShutdownHandTracker(handTrackerHandle: NiteHandTrackerHandle) -> NiteStatus;
 }
 extern "C" {
-    pub fn niteStartHandTracking(arg1: NiteHandTrackerHandle,
-                                 arg2: *const NitePoint3f,
+    pub fn niteStartHandTracking(handTrackerHandle: NiteHandTrackerHandle,
+                                 pPoint: *const NitePoint3f,
                                  pNewHandId: *mut NiteHandId)
                                  -> NiteStatus;
 }
 extern "C" {
-    pub fn niteStopHandTracking(arg1: NiteHandTrackerHandle, arg2: NiteHandId);
+    pub fn niteStopHandTracking(handTrackerHandle: NiteHandTrackerHandle, handId: NiteHandId);
 }
 extern "C" {
-    pub fn niteStopAllHandTracking(arg1: NiteHandTrackerHandle);
+    pub fn niteStopAllHandTracking(handTrackerHandle: NiteHandTrackerHandle);
 }
 extern "C" {
-    pub fn niteSetHandSmoothingFactor(arg1: NiteHandTrackerHandle, arg2: f32) -> NiteStatus;
+    pub fn niteSetHandSmoothingFactor(handTrackerHandle: NiteHandTrackerHandle, smoothing: f32) -> NiteStatus;
 }
 extern "C" {
-    pub fn niteGetHandSmoothingFactor(arg1: NiteHandTrackerHandle, arg2: *mut f32) -> NiteStatus;
+    pub fn niteGetHandSmoothingFactor(handTrackerHandle: NiteHandTrackerHandle, pSmoothing: *mut f32) -> NiteStatus;
 }
 extern "C" {
-    pub fn niteRegisterHandTrackerCallbacks(arg1: NiteHandTrackerHandle,
-                                            arg2: *mut NiteHandTrackerCallbacks,
-                                            arg3: *mut c_void)
+    pub fn niteRegisterHandTrackerCallbacks(handTrackerHandle: NiteHandTrackerHandle,
+                                            pHandTrackerCallbacks: *mut NiteHandTrackerCallbacks,
+                                            pCookie: *mut c_void)
                                             -> NiteStatus;
 }
 extern "C" {
-    pub fn niteUnregisterHandTrackerCallbacks(arg1: NiteHandTrackerHandle,
-                                              arg2: *mut NiteHandTrackerCallbacks);
+    pub fn niteUnregisterHandTrackerCallbacks(handTrackerHandle: NiteHandTrackerHandle,
+                                              pHandTrackerCallbacks: *mut NiteHandTrackerCallbacks);
 }
 extern "C" {
-    pub fn niteReadHandTrackerFrame(arg1: NiteHandTrackerHandle,
-                                    arg2: *mut *mut NiteHandTrackerFrame)
+    pub fn niteReadHandTrackerFrame(handTrackerHandle: NiteHandTrackerHandle,
+                                    frame: *mut *mut NiteHandTrackerFrame)
                                     -> NiteStatus;
 }
 extern "C" {
-    pub fn niteHandTrackerFrameAddRef(arg1: NiteHandTrackerHandle,
-                                      arg2: *mut NiteHandTrackerFrame)
+    pub fn niteHandTrackerFrameAddRef(handTrackerHandle: NiteHandTrackerHandle,
+                                      pFrame: *mut NiteHandTrackerFrame)
                                       -> NiteStatus;
 }
 extern "C" {
-    pub fn niteHandTrackerFrameRelease(arg1: NiteHandTrackerHandle,
-                                       arg2: *mut NiteHandTrackerFrame)
+    pub fn niteHandTrackerFrameRelease(handTrackerHandle: NiteHandTrackerHandle,
+                                       pFrame: *mut NiteHandTrackerFrame)
                                        -> NiteStatus;
 }
 extern "C" {
-    pub fn niteStartGestureDetection(arg1: NiteHandTrackerHandle,
-                                     arg2: NiteGestureType)
+    pub fn niteStartGestureDetection(handTrackerHandle: NiteHandTrackerHandle,
+                                     gestureType: NiteGestureType)
                                      -> NiteStatus;
 }
 extern "C" {
-    pub fn niteStopGestureDetection(arg1: NiteHandTrackerHandle, arg2: NiteGestureType);
+    pub fn niteStopGestureDetection(handTrackerHandle: NiteHandTrackerHandle, gestureType: NiteGestureType);
 }
 extern "C" {
-    pub fn niteStopAllGestureDetection(arg1: NiteHandTrackerHandle);
+    pub fn niteStopAllGestureDetection(handTrackerHandle: NiteHandTrackerHandle);
 }
 extern "C" {
     pub fn niteConvertJointCoordinatesToDepth(userTracker: NiteUserTrackerHandle,
