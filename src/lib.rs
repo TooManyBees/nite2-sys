@@ -793,7 +793,7 @@ extern "C" {
     pub fn niteInitializeUserTracker(pUserTrackerHandle: *mut NiteUserTrackerHandle) -> NiteStatus;
 }
 extern "C" {
-    pub fn niteInitializeUserTrackerByDevice(deviceHandle: OniDeviceHandle,
+    pub fn niteInitializeUserTrackerByDevice(pOniDevice: *mut c_void,
                                              pUserTrackerHandle: *mut NiteUserTrackerHandle)
                                              -> NiteStatus;
 }
@@ -858,7 +858,7 @@ extern "C" {
     pub fn niteInitializeHandTracker(pHandTrackerHandle: *mut NiteHandTrackerHandle) -> NiteStatus;
 }
 extern "C" {
-    pub fn niteInitializeHandTrackerByDevice(deviceHandle: OniDeviceHandle,
+    pub fn niteInitializeHandTrackerByDevice(pOniDevice: *mut c_void,
                                              pHandTrackerHandle: *mut NiteHandTrackerHandle)
                                              -> NiteStatus;
 }

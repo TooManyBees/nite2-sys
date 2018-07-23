@@ -6,6 +6,8 @@ The reference vendor files were built with bindgen using this command, with a fe
 
 `bindgen vendor/NiteCAPI.h -o ~src/lib.rs --whitelist-function nite.* --opaque-type Oni.* --whitelist-type Nite.* --whitelist-var NITE_.* -- -x c++ -I../OpenNI2.2/Include`
 
+`niteInitializeUserTrackerByDevice` and `niteInitializeHandTrackerByDevice` are not compatible with device handles from `openni2-sys` crate. The `openni2-sys` crate wraps the OpenNI2 C API, but these functions are designed to accept a pointer to an  instance of the `Device` class from the OpenNI2 C++ API.
+
 # Compilation
 
 NiTE2 usually expects to be dynamically linked, and requires env variables
@@ -18,8 +20,6 @@ When building on Windows, the build script checks the presence of the env vars
 
 (A Windows NiTE2 installation should also have the `NITE2_REDIST(64)` env
 var set, but it's not the location needed to correctly link.)
-
-# Runtime considerations
 
 # Runtime considerations
 
